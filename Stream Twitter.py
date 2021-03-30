@@ -18,6 +18,8 @@ class StdoutListener(StreamListener):
     def on_data(self,data):
         try:
             data = json.loads(data)
+            nama = data['user']['screen_name']
+            followers = data['user']['followers_count']
             tweet = data['text']
             now = datetime.now()
             time_string = now.strftime("%H:%M:%S")
@@ -25,6 +27,9 @@ class StdoutListener(StreamListener):
             tprint('eqivalone',font='bulbhead')
             print('\n\n\n\n\n\n\n\n\n\n\n\n\n')
             print("------------------------------------------------------------------------------------------------------------------------------------------------------------------------")
+            print('Username ',': ',nama)
+            print('Followers : ',followers)
+            print('')
             print('Tweet :')
             print(tweet)
             print('')
